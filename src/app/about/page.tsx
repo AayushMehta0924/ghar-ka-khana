@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { ShieldCheck, Sprout, MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
@@ -16,14 +17,19 @@ export default function AboutPage() {
       <section className="bg-cream-50 bg-paisley">
         <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20 grid gap-12 md:grid-cols-[1fr_1.3fr] items-center">
           <div className="relative mx-auto md:mx-0 aspect-square w-full max-w-sm rounded-[2rem] bg-gradient-to-br from-curry/40 via-saffron/30 to-terracotta/30 p-4 shadow-lg shadow-saffron/15">
-            <div className="h-full w-full rounded-[1.5rem] bg-cream-100 flex items-center justify-center overflow-hidden">
-              <span className="text-[140px] select-none" aria-hidden>
-                👩🏽‍🍳
-              </span>
+            <div className="relative h-full w-full rounded-[1.5rem] bg-cream-100 overflow-hidden">
+              <Image
+                src={chef.photo}
+                alt={`${chef.name} — chef at Ghar Ka Khana`}
+                fill
+                sizes="(min-width: 768px) 400px, 90vw"
+                className="object-cover"
+                priority
+              />
             </div>
             <span className="absolute -bottom-4 -right-4 rounded-2xl bg-white px-4 py-3 shadow-md text-sm">
               <span className="font-script text-xl text-saffron-700 block leading-none">
-                since 2024
+                since {chef.since}
               </span>
               <span className="text-ink-soft text-xs">feeding Tempe</span>
             </span>
