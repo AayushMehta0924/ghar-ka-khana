@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Clock, Truck, Wallet } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { OrderForm } from "@/components/order-form";
+import { SteamParticles } from "@/components/bg/steam-particles";
 import { site, whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
 
 export default function OrderPage() {
   return (
-    <section className="bg-cream-50 bg-paisley min-h-screen">
+    <section className="relative isolate overflow-hidden bg-cream-50 bg-paisley min-h-screen">
+      <SteamParticles />
       <div className="mx-auto max-w-6xl px-4 md:px-6 pt-12 pb-20 md:pt-20">
         <SectionHeading
           eyebrow="Order"

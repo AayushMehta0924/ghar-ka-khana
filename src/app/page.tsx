@@ -20,6 +20,7 @@ import { dishes } from "@/content/dishes";
 import { testimonials } from "@/content/testimonials";
 import { site, whatsappHref } from "@/lib/site";
 import { PaisleyBg } from "@/components/bg/paisley-bg";
+import { SteamParticles } from "@/components/bg/steam-particles";
 
 export default function HomePage() {
   const featured = dishes.slice(0, 3);
@@ -27,7 +28,8 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-cream-50 bg-paisley">
+      <section className="relative isolate overflow-hidden bg-cream-50 bg-paisley">
+        <SteamParticles />
         <div className="mx-auto max-w-6xl px-4 md:px-6 pt-12 pb-20 md:pt-20 md:pb-28 lg:pt-28 lg:pb-32 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <p className="font-script text-3xl md:text-4xl text-saffron-700 leading-none">
