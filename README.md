@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ghar Ka Khana
 
-## Getting Started
+Homemade Indian tiffin service in Tempe, AZ — website.
 
-First, run the development server:
+Fresh, home-cooked desi food delivered daily. $8/day, free delivery within 10 miles. Menu rotates every day. Payments via Zelle or Venmo (never on-site).
+
+## Stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + TypeScript
+- [Tailwind CSS 4](https://tailwindcss.com) (CSS-based theme via `@theme`)
+- [lucide-react](https://lucide.dev) icons
+- Google Fonts: Fraunces (serif), Inter (sans), Caveat (script)
+- Deploys to Vercel
+
+## Local dev
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                 # App Router pages
+    page.tsx           # Home
+    menu/              # Our menu
+    about/             # About the chef
+    testimonials/      # Customer stories
+    order/             # Native order form → Google Form
+    contact/           # Contact + payment details
+    layout.tsx         # Shared shell
+    globals.css        # Tailwind + brand theme
+  components/          # UI components (header, footer, cards, forms)
+  content/             # Static content (dishes, testimonials, chef)
+  lib/site.ts          # Site-wide config (phone, WhatsApp, pricing, Google Form URL)
+public/
+  favicon.svg
+```
 
-## Learn More
+## Order form → Google Form
 
-To learn more about Next.js, take a look at the following resources:
+[`src/components/order-form.tsx`](src/components/order-form.tsx) submits to the existing Google Form via `POST` into a hidden `<iframe>` (no backend, no CORS).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**To wire up real field IDs:** in Google Forms, click the kebab menu → *Get pre-filled link* → fill one of every field → *Get link*. The `entry.XXXXXX` values in the resulting URL are the real IDs — paste them into `FIELD_IDS` at the top of `order-form.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## TODO before launch
 
-## Deploy on Vercel
+- [ ] Replace chef bio placeholder in `src/content/chef.ts`
+- [ ] Replace 3 fake testimonials in `src/content/testimonials.ts`
+- [ ] Swap dish emojis for real food photos (add to `public/menu/` and wire up `<DishCard>`)
+- [ ] Supply real Google Form `entry.*` IDs in `order-form.tsx`
+- [ ] Confirm Gmail, Venmo handle, and Zelle number in `src/lib/site.ts`
+- [ ] Add `public/qr/whatsapp.png` and `public/qr/zelle.png`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Connected to Vercel — auto-deploys on push to `main`.
