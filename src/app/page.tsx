@@ -19,6 +19,7 @@ import { TestimonialCard } from "@/components/testimonial-card";
 import { dishes } from "@/content/dishes";
 import { testimonials } from "@/content/testimonials";
 import { site, whatsappHref } from "@/lib/site";
+import { PaisleyBg } from "@/components/bg/paisley-bg";
 
 export default function HomePage() {
   const featured = dishes.slice(0, 3);
@@ -93,7 +94,8 @@ export default function HomePage() {
       </section>
 
       {/* Why Ghar Ka Khana */}
-      <section className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
+      <section className="relative isolate mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
+        <PaisleyBg />
         <SectionHeading
           eyebrow="Why Ghar Ka Khana"
           title={
@@ -239,7 +241,8 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
+      <section className="relative isolate mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
+        <PaisleyBg />
         <SectionHeading
           eyebrow="Our regulars say"
           title="Students. Professionals. Aunties."
