@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { testimonials } from "@/content/testimonials";
+import { ScriptScatterBg } from "@/components/bg/script-scatter-bg";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -29,7 +30,8 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 md:px-6 pb-20">
+      <section className="relative isolate mx-auto max-w-6xl px-4 md:px-6 pb-20">
+        <ScriptScatterBg />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
             <TestimonialCard key={t.name} t={t} />
