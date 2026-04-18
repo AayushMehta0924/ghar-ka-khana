@@ -23,7 +23,7 @@
 
 html,
 body {
-  background: var(--color-cream-50);
+  background: var(--color-cream-100);
   color: var(--color-ink);
 }
 
@@ -46,25 +46,28 @@ h4 {
   font-family: var(--font-script);
 }
 
-.bg-paisley {
-  background-image: radial-gradient(
-      circle at 20% 20%,
-      rgba(232, 119, 34, 0.08) 0,
-      transparent 40%
-    ),
-    radial-gradient(circle at 80% 60%, rgba(46, 93, 58, 0.07) 0, transparent 45%);
+.bg-hero-warm {
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(232, 119, 34, 0.28) 0, transparent 55%),
+    radial-gradient(ellipse at 85% 80%, rgba(46, 93, 58, 0.22) 0, transparent 55%),
+    radial-gradient(ellipse at 60% 30%, rgba(242, 168, 29, 0.25) 0, transparent 60%),
+    linear-gradient(180deg, #fdecd0 0%, #fbe0b4 100%);
 }
 
-@media (min-width: 768px) {
-  .bg-paisley {
-    background-image: radial-gradient(
-        circle at 15% 15%,
-        rgba(232, 119, 34, 0.1) 0,
-        transparent 35%
-      ),
-      radial-gradient(circle at 85% 55%, rgba(46, 93, 58, 0.08) 0, transparent 40%),
-      radial-gradient(circle at 50% 90%, rgba(242, 168, 29, 0.07) 0, transparent 35%);
-  }
+.bg-warm-saffron {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(232, 119, 34, 0.14) 0, transparent 45%),
+    linear-gradient(180deg, #fde7c4 0%, #fbdeae 100%);
+}
+
+.bg-warm-leaf {
+  background:
+    radial-gradient(circle at 10% 90%, rgba(46, 93, 58, 0.14) 0, transparent 45%),
+    linear-gradient(180deg, #eef2e5 0%, #e3ead4 100%);
+}
+
+.bg-warm-cream {
+  background: linear-gradient(180deg, #fdf4e3 0%, #f7e6c4 100%);
 }
 
 .link-underline {
@@ -93,137 +96,8 @@ h4 {
   animation: float 6s ease-in-out infinite;
 }
 
-@keyframes steam-rise {
-  0% {
-    transform: translate3d(0, 20%, 0) scale(0.6);
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.55;
-  }
-  100% {
-    transform: translate3d(var(--drift, 0), -120%, 0) scale(1.4);
-    opacity: 0;
-  }
-}
-
-.steam-dot {
-  position: absolute;
-  bottom: -10%;
-  border-radius: 9999px;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.85),
-    rgba(255, 255, 255, 0) 70%
-  );
-  filter: blur(8px);
-  will-change: transform, opacity;
-  animation: steam-rise linear infinite;
-}
-
-.mesh-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.55;
-  will-change: transform;
-}
-.mesh-blob-a {
-  width: 520px;
-  height: 520px;
-  top: -120px;
-  left: -80px;
-  background: radial-gradient(circle, #e87722 0%, transparent 65%);
-  animation: mesh-drift-a 18s ease-in-out infinite;
-}
-.mesh-blob-b {
-  width: 480px;
-  height: 480px;
-  top: 30%;
-  right: -100px;
-  background: radial-gradient(circle, #f2a81d 0%, transparent 65%);
-  animation: mesh-drift-b 22s ease-in-out infinite;
-}
-.mesh-blob-c {
-  width: 560px;
-  height: 560px;
-  bottom: -160px;
-  left: 30%;
-  background: radial-gradient(circle, #b8431e 0%, transparent 65%);
-  animation: mesh-drift-c 26s ease-in-out infinite;
-  opacity: 0.4;
-}
-
-@keyframes mesh-drift-a {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, 40px) scale(1.08); }
-}
-@keyframes mesh-drift-b {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(-70px, 50px) scale(1.12); }
-}
-@keyframes mesh-drift-c {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -60px) scale(0.95); }
-}
-
-.ping-origin {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  width: 0;
-  height: 0;
-}
-.ping-dot {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  top: -6px;
-  left: -6px;
-  border-radius: 9999px;
-  background: #e87722;
-  box-shadow: 0 0 0 6px rgba(232, 119, 34, 0.18);
-}
-.ping-ring {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 80px;
-  margin-top: -40px;
-  margin-left: -40px;
-  border-radius: 9999px;
-  border: 1.5px solid rgba(232, 119, 34, 0.35);
-  animation: ping-expand 5.6s cubic-bezier(0, 0, 0.2, 1) infinite;
-  opacity: 0;
-}
-
-@keyframes ping-expand {
-  0% {
-    transform: scale(0.4);
-    opacity: 0.6;
-  }
-  80% {
-    opacity: 0.05;
-  }
-  100% {
-    transform: scale(10);
-    opacity: 0;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .animate-float,
-  .steam-dot,
-  .mesh-blob,
-  .ping-ring {
+  .animate-float {
     animation: none;
-  }
-  .steam-dot {
-    opacity: 0.3;
-  }
-  .ping-ring {
-    opacity: 0.1;
-    transform: scale(3);
   }
 }

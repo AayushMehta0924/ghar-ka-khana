@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { DishCard } from "@/components/dish-card";
 import { dishes } from "@/content/dishes";
-import { FloatingFoodBg } from "@/components/bg/floating-food-bg";
 
 export const metadata: Metadata = {
   title: "Our Menu",
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
-      <section className="bg-cream-50 bg-paisley">
+      <section className="bg-hero-warm">
         <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20">
           <SectionHeading
             eyebrow="What's cooking"
@@ -24,8 +23,7 @@ export default function MenuPage() {
         </div>
       </section>
 
-      <section className="relative isolate mx-auto max-w-6xl px-4 md:px-6 pb-20">
-        <FloatingFoodBg />
+      <section className="mx-auto max-w-6xl px-4 md:px-6 py-20">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {dishes.map((d) => (
             <DishCard key={d.slug} dish={d} />

@@ -19,8 +19,6 @@ import { TestimonialCard } from "@/components/testimonial-card";
 import { dishes } from "@/content/dishes";
 import { testimonials } from "@/content/testimonials";
 import { site, whatsappHref } from "@/lib/site";
-import { PaisleyBg } from "@/components/bg/paisley-bg";
-import { SteamParticles } from "@/components/bg/steam-particles";
 
 export default function HomePage() {
   const featured = dishes.slice(0, 3);
@@ -28,8 +26,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-cream-50 bg-paisley">
-        <SteamParticles />
+      <section className="relative overflow-hidden bg-hero-warm">
         <div className="mx-auto max-w-6xl px-4 md:px-6 pt-12 pb-20 md:pt-20 md:pb-28 lg:pt-28 lg:pb-32 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <p className="font-script text-3xl md:text-4xl text-saffron-700 leading-none">
@@ -96,8 +93,8 @@ export default function HomePage() {
       </section>
 
       {/* Why Ghar Ka Khana */}
-      <section className="relative isolate mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
-        <PaisleyBg />
+      <section className="bg-warm-cream">
+        <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
         <SectionHeading
           eyebrow="Why Ghar Ka Khana"
           title={
@@ -131,10 +128,11 @@ export default function HomePage() {
             body="Rotating 10-dish menu. You'll never eat the same thing two days in a row."
           />
         </div>
+        </div>
       </section>
 
       {/* How it works */}
-      <section className="bg-cream-100 border-y border-cream-200">
+      <section className="bg-warm-saffron border-y border-saffron/20">
         <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
           <SectionHeading
             eyebrow="How it works"
@@ -171,7 +169,8 @@ export default function HomePage() {
       </section>
 
       {/* Pricing */}
-      <section className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
+      <section className="bg-warm-leaf border-y border-leaf/15">
+        <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
         <SectionHeading
           eyebrow="Plans & pricing"
           title="Pick a plan, eat like home"
@@ -216,10 +215,11 @@ export default function HomePage() {
           </a>{" "}
           — pricing adjusts accordingly.
         </p>
+        </div>
       </section>
 
       {/* Menu preview */}
-      <section className="bg-cream-100 border-y border-cream-200">
+      <section className="bg-warm-saffron border-y border-saffron/20">
         <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
             <SectionHeading
@@ -243,8 +243,8 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="relative isolate mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
-        <PaisleyBg />
+      <section className="bg-warm-cream border-y border-cream-200">
+        <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
         <SectionHeading
           eyebrow="Our regulars say"
           title="Students. Professionals. Aunties."
@@ -262,6 +262,7 @@ export default function HomePage() {
           >
             Read more stories →
           </Link>
+        </div>
         </div>
       </section>
 

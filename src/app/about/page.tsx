@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { ShieldCheck, Sprout, MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { chef } from "@/content/chef";
-import { GradientMeshBg } from "@/components/bg/gradient-mesh-bg";
 
 export const metadata: Metadata = {
   title: "About the Chef",
@@ -15,8 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="relative isolate overflow-hidden bg-cream-50">
-        <GradientMeshBg />
+      <section className="bg-hero-warm">
         <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20 grid gap-12 md:grid-cols-[1fr_1.3fr] items-center">
           <div className="relative mx-auto md:mx-0 aspect-square w-full max-w-sm rounded-[2rem] bg-gradient-to-br from-curry/40 via-saffron/30 to-terracotta/30 p-4 shadow-lg shadow-saffron/15">
             <div className="relative h-full w-full rounded-[1.5rem] bg-cream-100 overflow-hidden">
@@ -25,7 +23,7 @@ export default function AboutPage() {
                 alt={`${chef.name} — chef at Ghar Ka Khana`}
                 fill
                 sizes="(min-width: 768px) 400px, 90vw"
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </div>
@@ -65,7 +63,7 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="bg-cream-100 border-y border-cream-200">
+      <section className="bg-warm-leaf border-y border-leaf/15">
         <div className="mx-auto max-w-5xl px-4 md:px-6 py-16 md:py-24 grid gap-6 md:grid-cols-2">
           <div className="rounded-3xl bg-white border border-cream-200 p-6 md:p-8">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-leaf/10 text-leaf-700">
