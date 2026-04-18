@@ -121,9 +121,56 @@ h4 {
   animation: steam-rise linear infinite;
 }
 
+.mesh-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.mesh-blob-a {
+  width: 520px;
+  height: 520px;
+  top: -120px;
+  left: -80px;
+  background: radial-gradient(circle, #e87722 0%, transparent 65%);
+  animation: mesh-drift-a 18s ease-in-out infinite;
+}
+.mesh-blob-b {
+  width: 480px;
+  height: 480px;
+  top: 30%;
+  right: -100px;
+  background: radial-gradient(circle, #f2a81d 0%, transparent 65%);
+  animation: mesh-drift-b 22s ease-in-out infinite;
+}
+.mesh-blob-c {
+  width: 560px;
+  height: 560px;
+  bottom: -160px;
+  left: 30%;
+  background: radial-gradient(circle, #b8431e 0%, transparent 65%);
+  animation: mesh-drift-c 26s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@keyframes mesh-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.08); }
+}
+@keyframes mesh-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-70px, 50px) scale(1.12); }
+}
+@keyframes mesh-drift-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -60px) scale(0.95); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
-  .steam-dot {
+  .steam-dot,
+  .mesh-blob {
     animation: none;
   }
   .steam-dot {
