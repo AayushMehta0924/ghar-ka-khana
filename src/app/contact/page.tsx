@@ -55,27 +55,32 @@ export default function ContactPage() {
       </section>
 
       <section className="bg-cream-100 border-y border-cream-200">
-        <div className="mx-auto max-w-5xl px-4 md:px-6 py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-4 md:px-6 py-16 md:py-20">
           <SectionHeading
             eyebrow="Payments"
-            title="Pay weekly — Zelle or Venmo"
+            title="Pay weekly — via Zelle"
             subtitle="We collect payment for the week upfront. No cards, no on-site payments, no fees."
           />
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            <PaymentCard
-              brand="Zelle"
-              color="bg-[#6d1ed4]"
-              handle={site.zelle}
-              instructions="Send to this phone number via your bank's Zelle. Include your name in the memo."
-            />
-            <PaymentCard
-              brand="Venmo"
-              color="bg-[#008cff]"
-              handle={site.venmo}
-              instructions="Tap the handle below on your phone, or search this handle in Venmo."
-            />
+          <div className="mt-10">
+            <div className="rounded-3xl border border-cream-200 bg-white p-6 md:p-8">
+              <div className="inline-flex items-center justify-center rounded-xl bg-[#6d1ed4] px-3 py-1.5 text-white font-semibold text-sm">
+                Zelle
+              </div>
+              <p className="mt-4 font-serif text-2xl md:text-3xl font-semibold break-all">
+                {site.zelle.handle}
+              </p>
+              <p className="mt-1 text-sm text-ink-soft">
+                Enrolled as{" "}
+                <strong className="text-ink">{site.zelle.enrolledName}</strong>
+              </p>
+              <p className="mt-4 text-sm text-ink-soft leading-relaxed">
+                Send via your bank&rsquo;s Zelle to the email above. Please
+                include your name in the memo so we can match the payment to
+                your order.
+              </p>
+            </div>
           </div>
-          <div className="mt-8 rounded-3xl border border-cream-200 bg-white p-5 flex items-start gap-3 text-sm text-ink-soft">
+          <div className="mt-6 rounded-3xl border border-cream-200 bg-white p-5 flex items-start gap-3 text-sm text-ink-soft">
             <Clock className="h-4 w-4 mt-0.5 text-saffron-700 flex-none" />
             <p>
               <strong>Please pay before your first tiffin of the week.</strong>{" "}
@@ -138,30 +143,3 @@ function ContactTile({
   );
 }
 
-function PaymentCard({
-  brand,
-  color,
-  handle,
-  instructions,
-}: {
-  brand: string;
-  color: string;
-  handle: string;
-  instructions: string;
-}) {
-  return (
-    <div className="rounded-3xl border border-cream-200 bg-white p-6 md:p-8">
-      <div
-        className={`inline-flex items-center justify-center rounded-xl ${color} px-3 py-1.5 text-white font-semibold text-sm`}
-      >
-        {brand}
-      </div>
-      <p className="mt-4 font-serif text-2xl md:text-3xl font-semibold break-all">
-        {handle}
-      </p>
-      <p className="mt-2 text-sm text-ink-soft leading-relaxed">
-        {instructions}
-      </p>
-    </div>
-  );
-}

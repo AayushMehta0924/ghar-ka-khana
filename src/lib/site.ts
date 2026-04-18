@@ -2,13 +2,15 @@ export const site = {
   name: "Ghar Ka Khana",
   tagline: "Homemade Indian tiffin service in Tempe",
   url: "https://gharkakhana.vercel.app",
-  phone: "+1 (602) 555-0123",
+  phone: "+91 93518 11587",
   phoneRaw: "+919351811587",
   whatsapp: "919351811587",
   whatsappText: "Hi! I'd like to order a tiffin from Ghar Ka Khana.",
-  email: "hello@gharkakhana.example",
-  venmo: "@ghar-ka-khana",
-  zelle: "+1 (602) 555-0123",
+  email: "umaarorausa@gmail.com",
+  zelle: {
+    handle: "umaarorausa@gmail.com",
+    enrolledName: "UMA ARORA",
+  },
   serviceArea: "Tempe, AZ (within 10 miles)",
   leadTimeHours: 4,
   googleFormViewUrl:
@@ -19,6 +21,7 @@ export const site = {
     oneTiffin: 8,
     twoTiffins: 14,
   },
+  logoSrc: "/brand/logo.png",
 } as const;
 
 export const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
