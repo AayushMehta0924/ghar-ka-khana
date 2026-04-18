@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NextImage from "next/image";
 import {
   BookOpen,
   ClipboardCheck,
@@ -70,19 +71,21 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            <div className="relative mx-auto aspect-square max-w-md rounded-[2.5rem] bg-gradient-to-br from-curry/40 via-saffron/30 to-terracotta/30 p-8 flex items-center justify-center shadow-xl shadow-saffron/10">
-              <div className="absolute inset-6 rounded-[2rem] bg-white/70 backdrop-blur-sm" />
-              <div className="relative text-center animate-float">
-                <div className="text-[140px] md:text-[180px] leading-none">🍛</div>
-                <p className="font-script text-2xl text-saffron-700 mt-2">
-                  thali of the day
-                </p>
+            <div className="relative mx-auto aspect-square max-w-md rounded-[2.5rem] bg-gradient-to-br from-curry/40 via-saffron/30 to-terracotta/30 p-3 md:p-4 shadow-xl shadow-saffron/15">
+              <div className="relative h-full w-full overflow-hidden rounded-[2rem] animate-float">
+                <NextImage
+                  src="/hero/thali.jpg"
+                  alt="Today's tiffin — sabzi with rotis"
+                  fill
+                  sizes="(min-width: 768px) 440px, 90vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
-              <span className="absolute top-4 right-4 text-5xl md:text-6xl rotate-12">
-                🫓
-              </span>
-              <span className="absolute bottom-6 left-6 text-4xl md:text-5xl -rotate-12">
-                🥘
+              <span className="absolute -top-3 -right-3 rounded-2xl bg-white px-3 py-2 shadow-md">
+                <span className="font-script text-lg text-saffron-700 leading-none block">
+                  thali of the day
+                </span>
               </span>
             </div>
           </div>
@@ -100,7 +103,7 @@ export default function HomePage() {
               Actually <span className="italic text-saffron-700">homemade</span>.
             </>
           }
-          subtitle="We're one person cooking one small batch at a time — not a cloud kitchen, not a buffet warmer. Just real ghar ka khana, made today, for you."
+          subtitle="Cooking one small batch at a time; not a cloud kitchen, not a buffet warmer. Just real ghar ka khana, made today, for you."
         />
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <Feature
