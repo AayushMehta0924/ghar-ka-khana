@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navLinks, site } from "@/lib/site";
+import { navLinks } from "@/lib/site";
+import { TiffinLogo } from "./tiffin-logo";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [logoOk, setLogoOk] = useState(true);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -39,23 +38,7 @@ export function SiteHeader() {
           className="flex items-center gap-2.5 text-ink hover:text-saffron transition-colors"
           onClick={() => setOpen(false)}
         >
-          {logoOk ? (
-            <span className="relative flex h-11 w-11 items-center justify-center">
-              <Image
-                src={site.logoSrc}
-                alt="Ghar Ka Khana logo"
-                width={44}
-                height={44}
-                className="h-11 w-11 object-contain drop-shadow-sm"
-                onError={() => setLogoOk(false)}
-                priority
-              />
-            </span>
-          ) : (
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-saffron to-terracotta text-white font-serif text-xl font-semibold shadow-sm">
-              G
-            </span>
-          )}
+          <TiffinLogo size={44} className="drop-shadow-sm" />
           <span className="flex flex-col leading-none">
             <span className="font-script text-xl text-saffron-700">Ghar Ka</span>
             <span className="font-serif text-lg font-semibold tracking-tight">
