@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { site, whatsappHref } from "@/lib/site";
@@ -19,48 +20,61 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="Get in touch"
             title="Reach us anytime"
-            subtitle="WhatsApp is fastest. Payments go via Zelle or Venmo — never on this site."
+            subtitle="WhatsApp is fastest. Payments go via Zelle or Venmo, never on this site."
           />
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 md:px-6 pb-20 grid gap-6 md:grid-cols-2">
-        <ContactTile
-          icon={<MessageCircle className="h-5 w-5" />}
-          label="WhatsApp"
-          value={site.phone}
-          href={whatsappHref}
-          cta="Open chat"
-          accent="leaf"
-        />
-        <ContactTile
-          icon={<Phone className="h-5 w-5" />}
-          label="Phone"
-          value={site.phone}
-          href={`tel:${site.phoneRaw}`}
-          cta="Call now"
-        />
-        <ContactTile
-          icon={<Mail className="h-5 w-5" />}
-          label="Email"
-          value={site.email}
-          href={`mailto:${site.email}`}
-          cta="Send email"
-        />
-        <ContactTile
-          icon={<MapPin className="h-5 w-5" />}
-          label="Service area"
-          value={site.serviceArea}
-          cta=""
-          body={`Free delivery within 10 miles of Tempe, AZ. Orders need ${site.leadTimeHours}+ hours advance notice.`}
-        />
+      <section className="mx-auto max-w-6xl px-4 md:px-6 pb-20 space-y-6">
+        <div className="grid gap-6 md:grid-cols-3">
+          <ContactTile
+            icon={<MessageCircle className="h-5 w-5" />}
+            label="WhatsApp"
+            value={site.whatsappDisplay}
+            href={whatsappHref}
+            cta="Open chat"
+            accent="leaf"
+          />
+          <ContactTile
+            icon={<Phone className="h-5 w-5" />}
+            label="Phone"
+            value={site.phone}
+            href={`tel:${site.phoneRaw}`}
+            cta="Call now"
+          />
+          <ContactTile
+            icon={<Mail className="h-5 w-5" />}
+            label="Email"
+            value={site.email}
+            href={`mailto:${site.email}`}
+            cta="Send email"
+          />
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 items-stretch">
+          <ContactTile
+            icon={<MapPin className="h-5 w-5" />}
+            label="Service area"
+            value={site.serviceArea}
+            cta=""
+            body={`Free delivery within 10 miles of Tempe, AZ. Orders need ${site.leadTimeHours}+ hours advance notice.`}
+          />
+          <div className="relative rounded-3xl overflow-hidden border border-cream-200 bg-cream-100 min-h-64">
+            <Image
+              src="/brand/scooter-delivery.jpg"
+              alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-contain p-4"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="bg-warm-leaf border-y border-leaf/15">
         <div className="mx-auto max-w-3xl px-4 md:px-6 py-16 md:py-20">
           <SectionHeading
             eyebrow="Payments"
-            title="Pay weekly — via Zelle"
+            title="Pay weekly —> via Zelle"
             subtitle="We collect payment for the week upfront. No cards, no on-site payments, no fees."
           />
           <div className="mt-10">

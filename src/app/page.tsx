@@ -143,16 +143,6 @@ export default function HomePage() {
             title="Four steps to ghar ka khana"
             subtitle="No apps, no surge pricing, no 15% service fees. Just message, eat, pay weekly."
           />
-          <div className="mt-10 flex justify-center">
-            <NextImage
-              src="/brand/scooter-delivery.jpg"
-              alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
-              width={360}
-              height={300}
-              className="w-full max-w-xs md:max-w-sm h-auto mix-blend-multiply animate-float"
-              priority={false}
-            />
-          </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <StepCard
               step={1}
