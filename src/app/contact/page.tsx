@@ -58,13 +58,13 @@ export default function ContactPage() {
             cta=""
             body={`Free delivery within 10 miles of Tempe, AZ. Orders need ${site.leadTimeHours}+ hours advance notice.`}
           />
-          <div className="relative rounded-3xl overflow-hidden border border-cream-200 bg-cream-100 min-h-64">
+          <div className="relative min-h-64">
             <Image
-              src="/brand/scooter-delivery.jpg"
+              src="/brand/scooter-delivery.png"
               alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-contain p-4"
+              className="object-contain"
             />
           </div>
         </div>
