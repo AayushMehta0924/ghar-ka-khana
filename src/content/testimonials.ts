@@ -25,9 +25,9 @@ export const testimonials: Testimonial[] = [
       "I was eating $15 Chipotle every day. $8 for a proper Indian tiffin; fresh, warm, and hygienic is a no-brainer. I've been subscribed for two months.",
   },
   {
-    name: "Ketaki D.",
-    role: "Finance Strategist, Tempe",
-    initials: "KD",
+    name: "Tanisha B.",
+    role: "Software Developer, MS CS Graduate, ASU",
+    initials: "TB",
     rating: 5,
     quote:
       "The menu changes daily so I never get bored. The matar paneer and rajma chawal hit different. Highly recommend for anyone missing ghar ka khana.",
