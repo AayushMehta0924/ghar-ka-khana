@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, MessageCircle, Mail, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { site, whatsappHref } from "@/lib/site";
 import { FloatingFood } from "@/components/floating-food";
+import { DeliverySwap } from "@/components/delivery-swap";
 
 export const metadata: Metadata = {
   title: "Contact & Payment",
@@ -50,24 +50,7 @@ export default function ContactPage() {
             cta="Send email"
           />
         </div>
-        <div className="grid gap-6 md:grid-cols-2 items-stretch">
-          <ContactTile
-            icon={<MapPin className="h-5 w-5" />}
-            label="Service area"
-            value={site.serviceArea}
-            cta=""
-            body={`Free delivery within 10 miles of Tempe, AZ. Orders need ${site.leadTimeHours}+ hours advance notice.`}
-          />
-          <div className="relative min-h-64">
-            <Image
-              src="/brand/scooter-delivery.png"
-              alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-contain"
-            />
-          </div>
-        </div>
+        <DeliverySwap />
       </section>
 
       <section className="bg-warm-leaf border-y border-leaf/15">

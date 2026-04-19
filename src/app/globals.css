@@ -160,11 +160,117 @@ h4 {
   pointer-events: none;
 }
 
+/* Delivery swap animation — scooter speeds past, tile glides to the opposite side. */
+.delivery-swap__tile,
+.delivery-swap__scooter {
+  will-change: transform;
+}
+.delivery-swap__scooter {
+  overflow: visible;
+  z-index: 2;
+}
+.delivery-swap__tile {
+  z-index: 1;
+}
+
+.scooter-exhaust,
+.scooter-breeze {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.scooter-exhaust span {
+  position: absolute;
+  right: 8%;
+  bottom: 22%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.85),
+    rgba(220, 220, 220, 0.05) 70%
+  );
+  filter: blur(4px);
+  opacity: 0;
+}
+.scooter-breeze span {
+  position: absolute;
+  right: 4%;
+  height: 2px;
+  width: 42px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0;
+}
+.scooter-breeze span:nth-child(1) { top: 44%; }
+.scooter-breeze span:nth-child(2) { top: 52%; width: 58px; }
+.scooter-breeze span:nth-child(3) { top: 60%; width: 36px; }
+
+@media (min-width: 768px) {
+  .delivery-swap.is-playing .delivery-swap__tile {
+    animation: tile-swap 2.4s cubic-bezier(0.42, 0, 0.2, 1) forwards;
+  }
+  .delivery-swap.is-playing .delivery-swap__scooter {
+    animation: scooter-swap 2.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  }
+  .delivery-swap.is-playing .scooter-exhaust span {
+    animation: puff 1.1s ease-out forwards;
+  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(1) { animation-delay: 0.15s; }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(2) { animation-delay: 0.4s;  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(3) { animation-delay: 0.65s; }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(4) { animation-delay: 0.9s;  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(5) { animation-delay: 1.15s; }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(6) { animation-delay: 1.4s;  }
+
+  .delivery-swap.is-playing .scooter-breeze span {
+    animation: breeze 0.7s ease-out forwards;
+  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(1) { animation-delay: 0.3s; }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(2) { animation-delay: 0.55s; }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(3) { animation-delay: 0.8s;  }
+}
+
+@keyframes tile-swap {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(100% + 1.5rem)); }
+}
+
+@keyframes scooter-swap {
+  0%   { transform: translateX(0)                             rotate(0deg); }
+  12%  { transform: translateX(-4%)                           rotate(-0.8deg); }
+  45%  { transform: translateX(-42%)                          rotate(-2deg); }
+  75%  { transform: translateX(calc(-100% - 1.5rem - 3%))     rotate(-1.5deg); }
+  90%  { transform: translateX(calc(-100% - 1.5rem + 0.8%))   rotate(0.4deg); }
+  100% { transform: translateX(calc(-100% - 1.5rem))          rotate(0deg); }
+}
+
+@keyframes puff {
+  0%   { opacity: 0;    transform: translate(0, 0)      scale(0.35); }
+  25%  { opacity: 0.7;  }
+  100% { opacity: 0;    transform: translate(68px, -12px) scale(1.9); }
+}
+
+@keyframes breeze {
+  0%   { opacity: 0;   transform: translateX(0); }
+  30%  { opacity: 0.8; }
+  100% { opacity: 0;   transform: translateX(70px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .hero-float,
-  .hero-plume {
-    animation: none;
+  .hero-plume,
+  .delivery-swap__tile,
+  .delivery-swap__scooter,
+  .scooter-exhaust span,
+  .scooter-breeze span {
+    animation: none !important;
   }
   .hero-plume {
     opacity: 0.35;
