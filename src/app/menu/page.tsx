@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { DishCard } from "@/components/dish-card";
 import { dishes } from "@/content/dishes";
+import { IngredientCascade } from "@/components/ingredient-cascade";
 
 export const metadata: Metadata = {
   title: "Our Menu",
@@ -13,8 +14,9 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <>
-      <section className="bg-hero-warm">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20">
+      <section className="relative isolate overflow-hidden bg-hero-warm">
+        <IngredientCascade className="opacity-70" density={0.00022} />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20">
           <SectionHeading
             eyebrow="What's cooking"
             title="Our rotating menu"

@@ -19,6 +19,7 @@ import { TestimonialCard } from "@/components/testimonial-card";
 import { dishes } from "@/content/dishes";
 import { testimonials } from "@/content/testimonials";
 import { site, whatsappHref } from "@/lib/site";
+import { IngredientCascade } from "@/components/ingredient-cascade";
 
 export default function HomePage() {
   const featured = dishes.slice(0, 3);
@@ -132,8 +133,9 @@ export default function HomePage() {
       </section>
 
       {/* How it works */}
-      <section className="bg-warm-saffron border-y border-saffron/20">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
+      <section className="relative isolate overflow-hidden bg-warm-saffron border-y border-saffron/20">
+        <IngredientCascade className="opacity-80" />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-6 py-20 md:py-28">
           <SectionHeading
             eyebrow="How it works"
             title="Four steps to ghar ka khana"

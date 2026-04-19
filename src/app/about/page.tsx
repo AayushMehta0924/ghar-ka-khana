@@ -23,7 +23,7 @@ export default function AboutPage() {
                 alt={`${chef.name} — chef at Ghar Ka Khana`}
                 fill
                 sizes="(min-width: 768px) 400px, 90vw"
-                className="object-cover object-top"
+                className="object-cover object-[center_30%]"
                 priority
               />
             </div>
