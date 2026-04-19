@@ -118,7 +118,7 @@ export default function HomePage() {
           <Feature
             icon={<DollarSign className="h-5 w-5" />}
             title="$8 a day"
-            body="Cheaper than one Chipotle bowl — and it's a full Indian thali with sabzi, daal, rice and 3 rotis."
+            body="Cheaper than one Chipotle bowl and it's a full Indian thali with sabzi, daal, rice and 3 rotis."
           />
           <Feature
             icon={<Truck className="h-5 w-5" />}
@@ -143,6 +143,16 @@ export default function HomePage() {
             title="Four steps to ghar ka khana"
             subtitle="No apps, no surge pricing, no 15% service fees. Just message, eat, pay weekly."
           />
+          <div className="mt-10 flex justify-center">
+            <NextImage
+              src="/brand/scooter-delivery.jpg"
+              alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
+              width={360}
+              height={300}
+              className="w-full max-w-xs md:max-w-sm h-auto mix-blend-multiply animate-float"
+              priority={false}
+            />
+          </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <StepCard
               step={1}
@@ -154,7 +164,7 @@ export default function HomePage() {
               step={2}
               icon={<ClipboardCheck className="h-5 w-5" />}
               title="Place your order"
-              body={`Fill our short form on the Order page — just 4-5 hours before you'd like your tiffin.`}
+              body={`Fill our short form on the Order page just 4-5 hours before you'd like your tiffin.`}
             />
             <StepCard
               step={3}
@@ -178,7 +188,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Plans & pricing"
           title="Pick a plan, eat like home"
-          subtitle="Each tiffin: 1 sabzi, 3 rotis, daal, rice. Want extra rotis or a custom combo? Just message us on WhatsApp — we'll sort you out."
+          subtitle="Each tiffin: 1 sabzi, 3 rotis, daal, rice. Want extra rotis or a custom combo? Just message us on WhatsApp and we'll sort you out."
         />
         <div className="mt-12 grid gap-6 md:grid-cols-2 max-w-3xl">
           <PricingCard
@@ -217,7 +227,7 @@ export default function HomePage() {
           >
             Message us on WhatsApp
           </a>{" "}
-          — pricing adjusts accordingly.
+          , pricing adjusts accordingly.
         </p>
         </div>
       </section>
