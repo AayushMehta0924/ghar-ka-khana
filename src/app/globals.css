@@ -162,15 +162,21 @@ h4 {
 
 /* Delivery swap animation — scooter speeds past, tile glides to the opposite side. */
 .delivery-swap__tile,
-.delivery-swap__scooter {
+.delivery-swap .scooter-stage {
   will-change: transform;
 }
 .delivery-swap__scooter {
-  overflow: visible;
   z-index: 2;
 }
 .delivery-swap__tile {
   z-index: 1;
+}
+
+.scooter-stage {
+  position: relative;
+  width: min(100%, 22rem);
+  aspect-ratio: 626 / 543;
+  transform-origin: 82% 82%;
 }
 
 .scooter-exhaust,
@@ -181,59 +187,62 @@ h4 {
 }
 .scooter-exhaust span {
   position: absolute;
-  right: 8%;
-  bottom: 22%;
-  width: 18px;
-  height: 18px;
+  right: 10%;
+  bottom: 24%;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.85),
-    rgba(220, 220, 220, 0.05) 70%
+    rgba(210, 210, 210, 0.9),
+    rgba(180, 180, 180, 0.25) 55%,
+    rgba(180, 180, 180, 0) 80%
   );
-  filter: blur(4px);
+  filter: blur(3px);
   opacity: 0;
 }
 .scooter-breeze span {
   position: absolute;
-  right: 4%;
-  height: 2px;
-  width: 42px;
+  right: 6%;
+  height: 3px;
   border-radius: 2px;
   background: linear-gradient(
     to left,
-    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.95),
     rgba(255, 255, 255, 0)
   );
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
   opacity: 0;
 }
-.scooter-breeze span:nth-child(1) { top: 44%; }
-.scooter-breeze span:nth-child(2) { top: 52%; width: 58px; }
-.scooter-breeze span:nth-child(3) { top: 60%; width: 36px; }
+.scooter-breeze span:nth-child(1) { top: 42%; width: 70px; }
+.scooter-breeze span:nth-child(2) { top: 50%; width: 90px; }
+.scooter-breeze span:nth-child(3) { top: 58%; width: 60px; }
+.scooter-breeze span:nth-child(4) { top: 66%; width: 80px; }
 
 @media (min-width: 768px) {
   .delivery-swap.is-playing .delivery-swap__tile {
-    animation: tile-swap 2.4s cubic-bezier(0.42, 0, 0.2, 1) forwards;
+    animation: tile-swap 2.6s cubic-bezier(0.42, 0, 0.2, 1) forwards;
   }
-  .delivery-swap.is-playing .delivery-swap__scooter {
-    animation: scooter-swap 2.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  .delivery-swap.is-playing .scooter-stage {
+    animation: scooter-swap 2.6s cubic-bezier(0.55, 0, 0.1, 1) forwards;
   }
   .delivery-swap.is-playing .scooter-exhaust span {
-    animation: puff 1.1s ease-out forwards;
+    animation: puff 0.95s ease-out forwards;
   }
-  .delivery-swap.is-playing .scooter-exhaust span:nth-child(1) { animation-delay: 0.15s; }
-  .delivery-swap.is-playing .scooter-exhaust span:nth-child(2) { animation-delay: 0.4s;  }
-  .delivery-swap.is-playing .scooter-exhaust span:nth-child(3) { animation-delay: 0.65s; }
-  .delivery-swap.is-playing .scooter-exhaust span:nth-child(4) { animation-delay: 0.9s;  }
-  .delivery-swap.is-playing .scooter-exhaust span:nth-child(5) { animation-delay: 1.15s; }
-  .delivery-swap.is-playing .scooter-exhaust span:nth-child(6) { animation-delay: 1.4s;  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(1) { animation-delay: 0.2s;  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(2) { animation-delay: 0.45s; }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(3) { animation-delay: 0.7s;  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(4) { animation-delay: 0.95s; }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(5) { animation-delay: 1.2s;  }
+  .delivery-swap.is-playing .scooter-exhaust span:nth-child(6) { animation-delay: 1.45s; }
 
   .delivery-swap.is-playing .scooter-breeze span {
-    animation: breeze 0.7s ease-out forwards;
+    animation: breeze 0.75s ease-out forwards;
   }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(1) { animation-delay: 0.3s; }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(2) { animation-delay: 0.55s; }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(3) { animation-delay: 0.8s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(1) { animation-delay: 0.55s; }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(2) { animation-delay: 0.8s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(3) { animation-delay: 1.05s; }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(4) { animation-delay: 1.3s;  }
 }
 
 @keyframes tile-swap {
@@ -243,23 +252,24 @@ h4 {
 
 @keyframes scooter-swap {
   0%   { transform: translateX(0)                             rotate(0deg); }
-  12%  { transform: translateX(-4%)                           rotate(-0.8deg); }
-  45%  { transform: translateX(-42%)                          rotate(-2deg); }
-  75%  { transform: translateX(calc(-100% - 1.5rem - 3%))     rotate(-1.5deg); }
-  90%  { transform: translateX(calc(-100% - 1.5rem + 0.8%))   rotate(0.4deg); }
+  10%  { transform: translateX(-3%)                           rotate(-4deg); }
+  30%  { transform: translateX(-18%)                          rotate(-14deg); }
+  55%  { transform: translateX(-58%)                          rotate(-20deg); }
+  78%  { transform: translateX(calc(-100% - 1.5rem - 3%))     rotate(-8deg); }
+  92%  { transform: translateX(calc(-100% - 1.5rem + 0.6%))   rotate(-1deg); }
   100% { transform: translateX(calc(-100% - 1.5rem))          rotate(0deg); }
 }
 
 @keyframes puff {
-  0%   { opacity: 0;    transform: translate(0, 0)      scale(0.35); }
-  25%  { opacity: 0.7;  }
-  100% { opacity: 0;    transform: translate(68px, -12px) scale(1.9); }
+  0%   { opacity: 0;    transform: translate(0, 0)        scale(0.4); }
+  20%  { opacity: 0.85; }
+  100% { opacity: 0;    transform: translate(80px, -18px) scale(2.1); }
 }
 
 @keyframes breeze {
   0%   { opacity: 0;   transform: translateX(0); }
-  30%  { opacity: 0.8; }
-  100% { opacity: 0;   transform: translateX(70px); }
+  25%  { opacity: 0.95; }
+  100% { opacity: 0;   transform: translateX(85px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -267,7 +277,7 @@ h4 {
   .hero-float,
   .hero-plume,
   .delivery-swap__tile,
-  .delivery-swap__scooter,
+  .delivery-swap .scooter-stage,
   .scooter-exhaust span,
   .scooter-breeze span {
     animation: none !important;

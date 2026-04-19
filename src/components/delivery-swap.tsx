@@ -17,10 +17,7 @@ export function DeliverySwap() {
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setPlay(true);
-          io.disconnect();
-        }
+        setPlay(entry.isIntersecting);
       },
       { threshold: 0.45 }
     );
@@ -51,27 +48,30 @@ export function DeliverySwap() {
         </p>
       </div>
 
-      <div className="delivery-swap__scooter relative min-h-64">
-        <div className="scooter-exhaust" aria-hidden>
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
-          <span />
+      <div className="delivery-swap__scooter relative flex items-center justify-center min-h-64">
+        <div className="scooter-stage">
+          <div className="scooter-breeze" aria-hidden>
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="scooter-exhaust" aria-hidden>
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <Image
+            src="/brand/scooter-delivery.png"
+            alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
+            fill
+            sizes="(min-width: 768px) 22rem, 90vw"
+            className="object-contain"
+          />
         </div>
-        <div className="scooter-breeze" aria-hidden>
-          <span />
-          <span />
-          <span />
-        </div>
-        <Image
-          src="/brand/scooter-delivery.png"
-          alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
-          fill
-          sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-contain delivery-swap__img"
-        />
       </div>
     </div>
   );
