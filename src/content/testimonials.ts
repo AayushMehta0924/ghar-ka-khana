@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Tanisha B.",
-    role: "Software Developer, MS CS Graduate, ASU",
+    role: "Software Developer, MS CS Graduate, Columbia University",
     initials: "TB",
     rating: 5,
     quote:
