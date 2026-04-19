@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { MobileOrderCta } from "@/components/mobile-order-cta";
+import { SpiceTrail } from "@/components/spice-trail";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -56,6 +57,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <MobileOrderCta />
+        <SpiceTrail />
       </body>
     </html>
   );
