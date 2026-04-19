@@ -221,10 +221,10 @@ h4 {
 
 @media (min-width: 768px) {
   .delivery-swap.is-playing .delivery-swap__tile {
-    animation: tile-swap 2.6s cubic-bezier(0.42, 0, 0.2, 1) forwards;
+    animation: tile-swap 2.4s cubic-bezier(0.42, 0, 0.2, 1) forwards;
   }
   .delivery-swap.is-playing .scooter-stage {
-    animation: scooter-swap 2.6s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+    animation: scooter-swap 2.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
   }
   .delivery-swap.is-playing .scooter-exhaust span {
     animation: puff 0.95s ease-out forwards;
@@ -252,11 +252,10 @@ h4 {
 
 @keyframes scooter-swap {
   0%   { transform: translateX(0)                             rotate(0deg); }
-  10%  { transform: translateX(-3%)                           rotate(-4deg); }
-  30%  { transform: translateX(-18%)                          rotate(-14deg); }
-  55%  { transform: translateX(-58%)                          rotate(-20deg); }
-  78%  { transform: translateX(calc(-100% - 1.5rem - 3%))     rotate(-8deg); }
-  92%  { transform: translateX(calc(-100% - 1.5rem + 0.6%))   rotate(-1deg); }
+  12%  { transform: translateX(-4%)                           rotate(-0.8deg); }
+  45%  { transform: translateX(-42%)                          rotate(-2deg); }
+  75%  { transform: translateX(calc(-100% - 1.5rem - 3%))     rotate(-1.5deg); }
+  90%  { transform: translateX(calc(-100% - 1.5rem + 0.8%))   rotate(0.4deg); }
   100% { transform: translateX(calc(-100% - 1.5rem))          rotate(0deg); }
 }
 
