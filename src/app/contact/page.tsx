@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Phone, MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { site, whatsappHref } from "@/lib/site";
+import { FloatingFood } from "@/components/floating-food";
 
 export const metadata: Metadata = {
   title: "Contact & Payment",
@@ -12,8 +13,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-hero-warm">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-10 md:pt-24 md:pb-16">
+      <section className="relative isolate overflow-hidden bg-hero-warm">
+        <FloatingFood />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-10 md:pt-24 md:pb-16">
           <SectionHeading
             eyebrow="Get in touch"
             title="Reach us anytime"

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/section-heading";
 import { TestimonialCard } from "@/components/testimonial-card";
 import { testimonials } from "@/content/testimonials";
+import { FloatingFood } from "@/components/floating-food";
 
 export const metadata: Metadata = {
   title: "Testimonials",
@@ -13,8 +14,9 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <>
-      <section className="bg-hero-warm">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20">
+      <section className="relative isolate overflow-hidden bg-hero-warm">
+        <FloatingFood />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20">
           <SectionHeading
             eyebrow="From our regulars"
             title={

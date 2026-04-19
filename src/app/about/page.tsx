@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { ShieldCheck, Sprout, MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { chef } from "@/content/chef";
+import { FloatingFood } from "@/components/floating-food";
 
 export const metadata: Metadata = {
   title: "About the Chef",
@@ -14,8 +15,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-hero-warm">
-        <div className="mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20 grid gap-12 md:grid-cols-[1fr_1.3fr] items-center">
+      <section className="relative isolate overflow-hidden bg-hero-warm">
+        <FloatingFood />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-6 pt-16 pb-12 md:pt-24 md:pb-20 grid gap-12 md:grid-cols-[1fr_1.3fr] items-center">
           <div className="relative mx-auto md:mx-0 aspect-square w-full max-w-sm rounded-[2rem] bg-gradient-to-br from-curry/40 via-saffron/30 to-terracotta/30 p-4 shadow-lg shadow-saffron/15">
             <div className="relative h-full w-full rounded-[1.5rem] bg-cream-100 overflow-hidden">
               <Image
