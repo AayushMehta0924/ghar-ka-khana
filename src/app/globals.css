@@ -96,8 +96,57 @@ h4 {
   animation: float 6s ease-in-out infinite;
 }
 
+@keyframes hero-float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-2deg);
+  }
+  50% {
+    transform: translate(6px, -14px) rotate(2deg);
+  }
+}
+.hero-float {
+  animation: hero-float ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-plume {
+  0% {
+    transform: translate3d(0, 20%, 0) scale(0.5);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  60% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(var(--plume-drift, 30px), -120%, 0) scale(1.8);
+    opacity: 0;
+  }
+}
+.hero-plume {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 252, 240, 0.95),
+    rgba(255, 248, 220, 0.55) 45%,
+    rgba(255, 240, 200, 0) 75%
+  );
+  filter: blur(14px);
+  will-change: transform, opacity;
+  animation: hero-plume linear infinite;
+  pointer-events: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-float {
+  .animate-float,
+  .hero-float,
+  .hero-plume {
     animation: none;
+  }
+  .hero-plume {
+    opacity: 0.35;
   }
 }
