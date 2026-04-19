@@ -38,7 +38,7 @@ export default function MenuPage() {
             Want something specific this week?
           </h2>
           <p className="mt-2 text-ink-soft max-w-xl mx-auto">
-            Let us know when you order — we&rsquo;ll do our best to include your
+            Let us know when you order and we&rsquo;ll do our best to include your
             favourite dish in your rotation.
           </p>
           <Link

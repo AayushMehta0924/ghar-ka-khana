@@ -84,7 +84,7 @@ export default function AboutPage() {
               Small batch, big heart
             </h3>
             <p className="mt-3 text-ink-soft leading-relaxed">
-              Every tiffin is hand-packed and delivered — often by me — because
+              Every tiffin is hand-packed and delivered by me because
               a small operation is the only way to keep the food tasting like
               home.
             </p>

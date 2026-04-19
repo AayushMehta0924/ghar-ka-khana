@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
     initials: "SS",
     rating: 5,
     quote:
-      "I was eating $15 Chipotle every day. $8 for a proper Indian tiffin — fresh, warm, hygienic — is a no-brainer. I've been subscribed for two months.",
+      "I was eating $15 Chipotle every day. $8 for a proper Indian tiffin; fresh, warm, and hygienic is a no-brainer. I've been subscribed for two months.",
   },
   {
     name: "Ketaki D.",

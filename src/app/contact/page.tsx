@@ -57,7 +57,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-3xl px-4 md:px-6 py-16 md:py-20">
           <SectionHeading
             eyebrow="Payments"
-            title="Pay weekly —> via Zelle"
+            title="Pay weekly - via Zelle"
             subtitle="We collect payment for the week upfront. No cards, no on-site payments, no fees."
           />
           <div className="mt-10">
