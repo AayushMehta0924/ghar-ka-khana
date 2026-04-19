@@ -50,7 +50,16 @@ export function DeliverySwap() {
 
       <div className="delivery-swap__scooter relative flex items-center justify-center min-h-64">
         <div className="scooter-stage">
+          <Image
+            src="/brand/scooter-delivery.png"
+            alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
+            fill
+            sizes="(min-width: 768px) 22rem, 90vw"
+            className="object-contain"
+          />
           <div className="scooter-breeze" aria-hidden>
+            <span />
+            <span />
             <span />
             <span />
             <span />
@@ -64,13 +73,6 @@ export function DeliverySwap() {
             <span />
             <span />
           </div>
-          <Image
-            src="/brand/scooter-delivery.png"
-            alt="Chef Uma on her delivery scooter heading out with a fresh tiffin"
-            fill
-            sizes="(min-width: 768px) 22rem, 90vw"
-            className="object-contain"
-          />
         </div>
       </div>
     </div>

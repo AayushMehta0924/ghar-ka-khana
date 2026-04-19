@@ -162,6 +162,7 @@ h4 {
 
 /* Delivery swap animation — scooter speeds past, tile glides to the opposite side. */
 .delivery-swap__tile,
+.delivery-swap__scooter,
 .delivery-swap .scooter-stage {
   will-change: transform;
 }
@@ -214,17 +215,22 @@ h4 {
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
   opacity: 0;
 }
-.scooter-breeze span:nth-child(1) { top: 42%; width: 70px; }
-.scooter-breeze span:nth-child(2) { top: 50%; width: 90px; }
-.scooter-breeze span:nth-child(3) { top: 58%; width: 60px; }
-.scooter-breeze span:nth-child(4) { top: 66%; width: 80px; }
+.scooter-breeze span:nth-child(1) { top: 38%; width: 70px; }
+.scooter-breeze span:nth-child(2) { top: 46%; width: 95px; }
+.scooter-breeze span:nth-child(3) { top: 53%; width: 60px; }
+.scooter-breeze span:nth-child(4) { top: 60%; width: 88px; }
+.scooter-breeze span:nth-child(5) { top: 67%; width: 55px; }
+.scooter-breeze span:nth-child(6) { top: 74%; width: 78px; }
 
 @media (min-width: 768px) {
   .delivery-swap.is-playing .delivery-swap__tile {
     animation: tile-swap 2.4s cubic-bezier(0.42, 0, 0.2, 1) forwards;
   }
+  .delivery-swap.is-playing .delivery-swap__scooter {
+    animation: scooter-slide 2.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  }
   .delivery-swap.is-playing .scooter-stage {
-    animation: scooter-swap 2.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+    animation: scooter-tilt 2.4s cubic-bezier(0.55, 0, 0.1, 1) forwards;
   }
   .delivery-swap.is-playing .scooter-exhaust span {
     animation: puff 0.95s ease-out forwards;
@@ -239,10 +245,12 @@ h4 {
   .delivery-swap.is-playing .scooter-breeze span {
     animation: breeze 0.75s ease-out forwards;
   }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(1) { animation-delay: 0.55s; }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(2) { animation-delay: 0.8s;  }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(3) { animation-delay: 1.05s; }
-  .delivery-swap.is-playing .scooter-breeze span:nth-child(4) { animation-delay: 1.3s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(1) { animation-delay: 0.4s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(2) { animation-delay: 0.55s; }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(3) { animation-delay: 0.7s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(4) { animation-delay: 0.9s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(5) { animation-delay: 1.1s;  }
+  .delivery-swap.is-playing .scooter-breeze span:nth-child(6) { animation-delay: 1.3s;  }
 }
 
 @keyframes tile-swap {
@@ -250,13 +258,22 @@ h4 {
   100% { transform: translateX(calc(100% + 1.5rem)); }
 }
 
-@keyframes scooter-swap {
-  0%   { transform: translateX(0)                             rotate(0deg); }
-  12%  { transform: translateX(-4%)                           rotate(-0.8deg); }
-  45%  { transform: translateX(-42%)                          rotate(-2deg); }
-  75%  { transform: translateX(calc(-100% - 1.5rem - 3%))     rotate(-1.5deg); }
-  90%  { transform: translateX(calc(-100% - 1.5rem + 0.8%))   rotate(0.4deg); }
-  100% { transform: translateX(calc(-100% - 1.5rem))          rotate(0deg); }
+@keyframes scooter-slide {
+  0%   { transform: translateX(0); }
+  12%  { transform: translateX(-4%); }
+  45%  { transform: translateX(-42%); }
+  75%  { transform: translateX(calc(-100% - 1.5rem - 3%)); }
+  90%  { transform: translateX(calc(-100% - 1.5rem + 0.8%)); }
+  100% { transform: translateX(calc(-100% - 1.5rem)); }
+}
+
+@keyframes scooter-tilt {
+  0%   { transform: rotate(0deg); }
+  12%  { transform: rotate(-0.8deg); }
+  45%  { transform: rotate(-2deg); }
+  75%  { transform: rotate(-1.5deg); }
+  90%  { transform: rotate(0.4deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @keyframes puff {
@@ -276,6 +293,7 @@ h4 {
   .hero-float,
   .hero-plume,
   .delivery-swap__tile,
+  .delivery-swap__scooter,
   .delivery-swap .scooter-stage,
   .scooter-exhaust span,
   .scooter-breeze span {
